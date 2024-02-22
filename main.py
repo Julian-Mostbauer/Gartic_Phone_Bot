@@ -11,8 +11,6 @@ from drawing import draw_image
 from Utils_UI import click_button, select_in_selection
 
 
-
-
 def init_webdriver(profile_path):
     firefox_options = webdriver.FirefoxOptions()
     firefox_profile = webdriver.FirefoxProfile(profile_path)
@@ -41,7 +39,7 @@ name_field.clear()
 name_field.send_keys("test")
 name_field.send_keys(Keys.RETURN)
 
-click_button(driver, "/html/body/div/div[2]/div/div/div[3]/div[1]/div[2]/button")  # okay button
+click_button(driver, "/html/body/div/div[2]/div/div/div[4]/div[1]/div[2]/button")  # okay button
 driver.implicitly_wait(2)
 click_button(driver, "/html/body/div/div[2]/div/div/div[2]/div[2]/div/div[1]/span[2]")  # custom game button
 
@@ -55,7 +53,8 @@ click_button(driver, "/html/body/div/div[2]/div/div/div[2]/div[2]/span/button") 
 click_button(driver, "/html/body/div/div[3]/div/span/button[1]")
 
 driver.implicitly_wait(4)
-click_button(driver, "/html/body/div/div[2]/div/div/div[4]/div[2]/div/div[1]/div[4]")
+pencil_size = 5
+click_button(driver, f"/html/body/div/div[2]/div/div/div[4]/div[2]/div/div[1]/div[{pencil_size}]")
 
 draw_image("Assets/kirby.png", driver)
 

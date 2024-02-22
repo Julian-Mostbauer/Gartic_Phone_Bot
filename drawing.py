@@ -153,8 +153,7 @@ def draw_image(file_path, driver):
 
         click_button(driver, color_to_xpath(color))
 
-        i = 0
-
+        i = 1
         for position in required_pos[color]:
             print(f"{i}/{amount}")
             i += 1
