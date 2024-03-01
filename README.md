@@ -21,9 +21,9 @@ The program exited accidentally after pressing outside the canvas on the finish 
 
 ### Pixel Art examples:
 
-![img_1.png](img_1.png)
+![img_1.png](ReadmeImages/img_1.png)
 ![grafik](https://github.com/Julian-Mostbauer/Gartic_Phone_Bot/assets/146772868/62679fdb-674f-42b9-a88b-36c565ce578d)
-![img.png](img.png)
+![img.png](ReadmeImages/img.png)
 
 These generally work better and are way faster(Around 3-4min). The only issue is that the background detection does sometimes screw the image over, when the actuall background is not the most prevellent color.
 
