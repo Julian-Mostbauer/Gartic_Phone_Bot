@@ -8,4 +8,6 @@ Original:
 
 ![train](https://github.com/Julian-Mostbauer/Gartic_Phone_Bot/assets/146772868/a1a74038-a392-4710-a67a-030ea97521dc)
 
+Pixel Art examples:
 
+![grafik](https://github.com/Julian-Mostbauer/Gartic_Phone_Bot/assets/146772868/7ec1d9c9-90a9-4487-9e5c-135526a1d4d9)
