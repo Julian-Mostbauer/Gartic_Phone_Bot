@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from drawing import draw_image
 from Utils_UI import click_button, select_in_selection, enter_in_textfield, click_button_class
-
+from Hidden import profile_path_firefox
 
 def init_webdriver(profile_path):
     firefox_options = webdriver.FirefoxOptions()
@@ -50,7 +50,7 @@ def navigate_game_creation(web_driver):
     click_button(web_driver, "/html/body/div/div[3]/div/span/button[1]")
 
 
-driver = init_webdriver(r"C:\Users\julia\AppData\Roaming\Mozilla\Firefox\Profiles\5iuiq8bh.Marionette")
+driver = init_webdriver(profile_path_firefox)
 navigate_game_creation(driver)
 
 driver.implicitly_wait(4)
