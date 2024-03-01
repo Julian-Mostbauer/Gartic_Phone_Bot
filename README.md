@@ -21,9 +21,12 @@ The program exited accidentally after pressing outside the canvas on the finish 
 
 ### Pixel Art examples:
 
-![img_1.png](ReadmeImages/minecraft.png)
+![grafik](https://github.com/Julian-Mostbauer/Gartic_Phone_Bot/assets/146772868/fd2b8aae-2cd3-4005-98f5-63aa95ad3161)
+
 ![grafik](https://github.com/Julian-Mostbauer/Gartic_Phone_Bot/assets/146772868/62679fdb-674f-42b9-a88b-36c565ce578d)
-![img.png](ReadmeImages/skull.png)
+
+![grafik](https://github.com/Julian-Mostbauer/Gartic_Phone_Bot/assets/146772868/27154f4c-c56f-42b2-9dfd-55f58f5f7ef6)
+
 
 These generally work better and are way faster(Around 3-4min). The only issue is that the background detection does sometimes screw the image over, when the actuall background is not the most prevellent color.
 
