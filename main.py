@@ -55,7 +55,7 @@ navigate_game_creation(driver)
 
 driver.implicitly_wait(4)
 
-pencil_size = 3
+pencil_size = 5
 click_button(driver, f"/html/body/div/div[2]/div/div/div[4]/div[2]/div/div[1]/div[{pencil_size}]")
 draw_image("Assets/minecraft.png", driver, pencil_size)
 
