@@ -115,17 +115,33 @@ def color_to_xpath(color: str):
             return "/html/body/div/div[2]/div/div/div[3]/div/div[1]/section[2]/div[18]"
 
 
-def draw_image(file_path, driver):
+def connect_points_to_lines(points_dict):
+    lines_dict = {}
+    for color in points_dict:
+        original = points_dict[color]
+        result = []
+        
+        lines_dict[color] = result
+    return lines_dict
+
+
+def prepare_instructions(file_path):
     image_array = image_to_numpy_array(flip_mirror(Image.open(file_path)))
     required_pos = defaultdict(list)
 
     for y in range(image_array.shape[1]):
         for x in range(image_array.shape[0]):
             [r, g, b] = image_array[x][y]
-
             color = closest_color((r, g, b))
-
             required_pos[color].append([x, y])
+
+    print(connect_points_to_lines(required_pos))
+
+    return required_pos
+
+
+def draw_image(file_path, driver, pencil_size):
+    required_pos = prepare_instructions(file_path)
 
     actions = ActionChains(driver)
     color_palett = driver.find_element(By.XPATH, "/html/body/div/div[2]/div/div/div[3]/div")
@@ -144,6 +160,8 @@ def draw_image(file_path, driver):
 
     print(most_common_color)
 
+    required_space = (3 + 5*pencil_size)/2
+
     for color in required_pos:
         print(color)
         amount = len(required_pos[color])
@@ -158,6 +176,9 @@ def draw_image(file_path, driver):
             print(f"{i}/{amount}")
             i += 1
 
-            pos_x = (position[0] * 10) - canvas_size["width"] / 2
-            pos_y = (position[1] * 10) - canvas_size["height"] / 2
-            actions.move_to_element_with_offset(canvas, pos_x, pos_y).click().perform()
+            pos_x = (position[0] * required_space) - canvas_size["width"] / 2
+            pos_y = (position[1] * required_space) - canvas_size["height"] / 2
+            try:
+                actions.move_to_element_with_offset(canvas, pos_x, pos_y).click().perform()
+            except:
+                pass

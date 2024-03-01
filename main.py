@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from drawing import draw_image
-from Utils_UI import click_button, select_in_selection
+from Utils_UI import click_button, select_in_selection, enter_in_textfield, click_button_class
 
 
 def init_webdriver(profile_path):
@@ -19,44 +19,45 @@ def init_webdriver(profile_path):
     return web_driver
 
 
+def navigate_game_creation(web_driver):
+    web_driver.get("https://garticphone.com/de")
+    action = webdriver.ActionChains(web_driver)
+
+    assert "Gartic Phone – Stille Post" in web_driver.title
+
+    # cookies
+    web_driver.implicitly_wait(3)
+    try:
+        click_button(web_driver, "/html/body/div[1]/div[1]/div[2]/span[1]/a")
+    except:
+        pass
+
+    enter_in_textfield(web_driver, "/html/body/div/div[2]/div/div/div[4]/div[1]/div[1]/div[2]/section/span/input",
+                       "test")
+    driver.implicitly_wait(1)
+
+    click_button(web_driver, "/html/body/div/div[2]/div/div/div[4]/div[1]/div[2]/button")  # okay button
+    web_driver.implicitly_wait(2)
+    click_button(web_driver, "/html/body/div/div[2]/div/div/div[2]/div[2]/div/div[1]/span[2]")  # custom game button
+
+    select_in_selection(web_driver, "UNENDLICH",
+                        "/html/body/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[1]/div/div[1]/section/label/select")  # time options
+
+    select_in_selection(web_driver, "NUR ZEICHNEN",
+                        "/html/body/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[1]/div/div[2]/section/label/select")  # game order
+    click_button(web_driver, "/html/body/div/div[2]/div/div/div[2]/div[2]/span/button")  # start button
+
+    click_button(web_driver, "/html/body/div/div[3]/div/span/button[1]")
+
+
 driver = init_webdriver(r"C:\Users\julia\AppData\Roaming\Mozilla\Firefox\Profiles\5iuiq8bh.Marionette")
-
-driver.get("https://garticphone.com/de")
-action = webdriver.ActionChains(driver)
-
-assert "Gartic Phone – Stille Post" in driver.title
-
-# cookies
-driver.implicitly_wait(3)
-try:
-    click_button(driver, "/html/body/div[1]/div[1]/div[2]/span[1]/a")
-except:
-    pass
-
-name_field = driver.find_element(By.CLASS_NAME,
-                                 "jsx-1347952224 ")
-name_field.clear()
-name_field.send_keys("test")
-name_field.send_keys(Keys.RETURN)
-
-click_button(driver, "/html/body/div/div[2]/div/div/div[4]/div[1]/div[2]/button")  # okay button
-driver.implicitly_wait(2)
-click_button(driver, "/html/body/div/div[2]/div/div/div[2]/div[2]/div/div[1]/span[2]")  # custom game button
-
-select_in_selection(driver, "UNENDLICH",
-                    "/html/body/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[1]/div/div[1]/section/label/select")  # time options
-
-select_in_selection(driver, "NUR ZEICHNEN",
-                    "/html/body/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[1]/div/div[2]/section/label/select")  # game order
-click_button(driver, "/html/body/div/div[2]/div/div/div[2]/div[2]/span/button")  # start button
-
-click_button(driver, "/html/body/div/div[3]/div/span/button[1]")
+navigate_game_creation(driver)
 
 driver.implicitly_wait(4)
-pencil_size = 5
-click_button(driver, f"/html/body/div/div[2]/div/div/div[4]/div[2]/div/div[1]/div[{pencil_size}]")
 
-draw_image("Assets/Triforce.png", driver)
+pencil_size = 1
+click_button(driver, f"/html/body/div/div[2]/div/div/div[4]/div[2]/div/div[1]/div[{pencil_size}]")
+draw_image("Assets/train.png", driver, pencil_size)
 
 input()
 driver.close()
