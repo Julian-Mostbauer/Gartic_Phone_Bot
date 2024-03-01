@@ -31,7 +31,7 @@ Sources:
 
 https://www.pixilart.com/art/pixel-kirby-b2162674da6a891
 https://www.pixilart.com/art/minecraft-1-6fe22ec424527ef?ft=topic&ft_id=6
-
+https://www.deviantart.com/suchanames/art/Skull-in-pixel-art-64X64-905035597
 
 ## Roadmap
 - Fix the bug where program accidentally finishes early
