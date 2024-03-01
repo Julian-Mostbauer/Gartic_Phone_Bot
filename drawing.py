@@ -160,7 +160,7 @@ def draw_image(file_path, driver, pencil_size):
 
     print(most_common_color)
 
-    required_space = (3 + 5*pencil_size)/2
+    required_space = ((3 + 5*pencil_size) // 2) * 0.7
 
     for color in required_pos:
         print(color)
