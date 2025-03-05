@@ -1,6 +1,6 @@
 # Garticphone Bot
 
-Draw an image from a png file in the game [Garticphone](https://garticphone.com/de). Currently made so that it creates a lobby for itself, but will be more configurable in the future.
+Draw an image from a png file in the game [Garticphone](https://garticphone.com/de). Currently made so that it creates a lobby for itself.
 
 Using selenium webdriver.  
 
@@ -35,15 +35,3 @@ Sources:
 https://www.pixilart.com/art/pixel-kirby-b2162674da6a891
 https://www.pixilart.com/art/minecraft-1-6fe22ec424527ef?ft=topic&ft_id=6
 https://www.deviantart.com/suchanames/art/Skull-in-pixel-art-64X64-905035597
-
-## Roadmap
-- Fix the bug where program accidentally finishes early
-- Optimize Drawing.(2h for a 480x218 image is way too much)
-- Add more options to use the bot:
-  - Join lobbies
-  - Ease of use
-
-## How to use
-I would not recommend using this project at the current state, as it is still to impractical to use for anything other than novelty. However, I intend on making the program more usable in the future.
-
-
